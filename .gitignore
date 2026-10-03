@@ -219,3 +219,6 @@ __marimo__/
 
 # Data Files
 data/
+
+# Sandbox files
+notebooks/00_sandbox.ipynb
