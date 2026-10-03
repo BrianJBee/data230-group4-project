@@ -1,0 +1,9 @@
+ingestion:
+  file_type: txt
+  delimiter: "$"
+
+download:
+  base_url: "https://fis.fda.gov/content/Exports/faers_ascii_"
+  year: 2025
+  files: 4
+  extension: ".zip"
