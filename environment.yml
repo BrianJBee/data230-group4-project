@@ -2,9 +2,10 @@ name: .data230-group4-project-env
 channels:
   - defaults
 dependencies:
-  - python=3.14.8
   - pandas
   - pyyaml
   - ipykernel
   - requests
-  
+  - matplotlib
+  - seaborn
+  - pyarrow
