@@ -24,7 +24,7 @@ conda --version
  You should see a version number, for example:
 
 ```
-conda 25.x.x
+conda 26.1.1
 ```
 
  ## 1\. Clone or Download the Repository
@@ -32,8 +32,8 @@ conda 25.x.x
  If you are using Git, clone the repository and navigate into the project directory:
 
 ```
-git clone <repository-url>
-cd <repository-directory>
+git clone https://github.com/BrianJBee/data230-group4-project.git
+cd data230-group4-project
 ```
 
  Alternatively, download the repository as a ZIP file and extract it to a location of your choice.
@@ -69,10 +69,10 @@ conda env create -f environment.yml
  For example, if the file contains:
 
 ```
-name: my-project
+name: data230-group4-project-env
 ```
 
- Conda will create an environment named `my-project`.
+ Conda will create an environment named `data230-group4-project-env`.
 
  ### Check the Environment Name
 
@@ -89,19 +89,13 @@ conda env list
  Activate the environment using its name:
 
 ```
-conda activate <environment-name>
-```
-
- For example:
-
-```
-conda activate my-project
+conda activate data230-group4-project-env
 ```
 
  You should see the environment name displayed in your terminal prompt:
 
 ```
-(my-project) $
+(data230-group4-project-env) $
 ```
 
  All subsequent Python commands should be run while this environment is activated.
@@ -135,7 +129,7 @@ conda list
  Make sure the Conda environment is activated:
 
 ```
-conda activate <environment-name>
+conda activate data230-group4-project-env
 ```
 
  You can then run Python scripts normally:
@@ -147,7 +141,7 @@ python path/to/script.py
  For example:
 
 ```
-python src/main.py
+python src/ingest.py
 ```
 
  ## 6\. Running Jupyter Notebooks
@@ -173,26 +167,26 @@ jupyter lab
  In Jupyter, the kernel should correspond to:
 
 ```
-<environment-name>
+data230-group4-project-env
 ```
 
  If the environment does not appear as a selectable kernel, install the Jupyter kernel package into the environment:
 
 ```
-conda activate <environment-name>
+conda activate data230-group4-project-env
 conda install ipykernel
 ```
 
  Then register the environment as a Jupyter kernel:
 
 ```
-python -m ipykernel install --user --name <environment-name> --display-name "Python (<environment-name>)"
+python -m ipykernel install --user --name data230-group4-project-env --display-name "Python (data230-group4-project-env)"
 ```
 
  Restart Jupyter and select:
 
 ```
-Python (<environment-name>)
+Python (data230-group4-project-env)
 ```
 
  as the notebook kernel.
@@ -204,8 +198,8 @@ Python (<environment-name>)
  For example:
 
 ```
-conda activate <environment-name>
-cd <repository-directory>
+conda activate data230-group4-project-env
+cd data230-group4-project
 ```
 
  Then run scripts or notebooks as needed.
@@ -241,7 +235,7 @@ conda deactivate
  Then remove it:
 
 ```
-conda env remove -n <environment-name>
+conda env remove -n data230-group4-project-env
 ```
 
  Recreate it using:
@@ -253,7 +247,7 @@ conda env create -f environment.yml
  Finally, activate it:
 
 ```
-conda activate <environment-name>
+conda activate data230-group4-project-env
 ```
 
  ## 10\. Troubleshooting
@@ -283,14 +277,14 @@ conda env create -f path/to/environment.yml
  If you see an error indicating that the environment already exists, activate it:
 
 ```
-conda activate <environment-name>
+conda activate data230-group4-project-env
 ```
 
  If you need to recreate it from scratch, remove the existing environment first:
 
 ```
 conda deactivate
-conda env remove -n <environment-name>
+conda env remove -n data230-group4-project-env
 conda env create -f environment.yml
 ```
 
@@ -299,7 +293,7 @@ conda env create -f environment.yml
  First make sure the correct environment is active:
 
 ```
-conda activate <environment-name>
+conda activate data230-group4-project-env
 ```
 
  Then update the environment:
@@ -339,8 +333,8 @@ conda info --envs
  For each new session, activate the project environment before running any code:
 
 ```
-cd <repository-directory>
-conda activate <environment-name>
+cd data230-group4-project
+conda activate data230-group4-project-env
 ```
 
  Then run the desired script or launch Jupyter:
@@ -361,13 +355,13 @@ python path/to/script.py
 
 ```
 # Navigate to the project
-cd <repository-directory>
+cd data230-group4-project
 
 # Create the environment
 conda env create -f environment.yml
 
 # Activate the environment
-conda activate <environment-name>
+conda activate data230-group4-project-env
 
 # Launch Jupyter
 jupyter lab
@@ -385,4 +379,9 @@ jupyter lab
 
 ```
 conda env update -f environment.yml --prune
+```
+- Although Jupyter is not included in `environment.yml`, you can use **Visual Studio Code** to edit project files. If you would like to use Jupyter, simply install the library:
+```
+conda activate data230-group4-project-env   # Make sure the environment is active
+conda install jupyter
 ```
