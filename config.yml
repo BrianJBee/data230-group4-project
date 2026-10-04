@@ -4,6 +4,6 @@ ingestion:
 
 download:
   base_url: "https://fis.fda.gov/content/Exports/faers_ascii_"
-  year: 2025
-  files: 4
+  start_year: 2022
+  end_year: 2026
   extension: ".zip"

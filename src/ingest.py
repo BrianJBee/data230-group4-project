@@ -47,34 +47,37 @@ def main() -> None:
 
     # Download all quarterly ZIP files.
     config = yaml.safe_load((PROJECT_ROOT / "config.yml").read_text())
-    YEAR = str(config["download"]["year"])
-    BASE_URL = config["download"]["base_url"] + YEAR
+    BASE_URL = config["download"]["base_url"]
     EXT = config["download"]["extension"]
-    NUM_FILES = config["download"]["files"]
+    START_YEAR = config["download"]["start_year"]
+    END_YEAR = config["download"]["end_year"]
 
     # Download each quarterly file
     RAW_DIR = DATA_DIR / "01_raw"
-    for n in range(1, NUM_FILES + 1):
-        i = str(n)  # Convert to string for URL construction
 
-        # Create data/01_raw/Q{i} directory if it doesn't exist
-        quarter_dir = RAW_DIR / f"Q{i}"
-        quarter_dir.mkdir(parents=True, exist_ok=True)
+    for year in range(START_YEAR, END_YEAR + 1):
+        for quarter in range(1, 5):  # Assuming 4 quarters per year
+            y, q = str(year), str(quarter)  # Convert to string for URL construction
 
-        # Construct URL and destination path
-        url = f"{BASE_URL}q{i}{EXT}"
-        zip_path = quarter_dir / f"Q{i}.zip"
+            # Create data/01_raw/{y}/Q{q} directory if it doesn't exist
+            quarter_dir = RAW_DIR / y / f"Q{q}"
+            quarter_dir.mkdir(parents=True, exist_ok=True)
 
-        print(f"Downloading Q{i}...")
-        print(f"\tURL: {url}")
+            # Construct URL and destination path
+            filename = f"{y}Q{q}{EXT}"
+            url = f"{BASE_URL}{filename}"
+            zip_path = quarter_dir / filename
 
-        try:
-            download_file(url, zip_path)
-            print(f"\tSaved: {zip_path}\n")
+            print(f"Downloading {filename}...")
+            print(f"\tURL: {url}")
 
-        except requests.RequestException as error:
-            print(f"\tERROR: Could not download Q{i} from {url}.")
-            print(f"\t{error}\n")
+            try:
+                download_file(url, zip_path)
+                print(f"\tSaved: {zip_path}\n")
+
+            except requests.RequestException as error:
+                print(f"\tERROR: Could not download Q{q} from {url}.")
+                print(f"\t{error}\n")
 
 if __name__ == "__main__":
     main()
