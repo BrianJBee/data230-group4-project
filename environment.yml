@@ -6,6 +6,5 @@ dependencies:
   - pandas
   - pyyaml
   - ipykernel
-  - pathlib
   - requests
   
