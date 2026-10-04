@@ -1,4 +1,4 @@
-name: .data230-group4-project-env
+name: data230-group4-project-env
 channels:
   - defaults
 dependencies:
