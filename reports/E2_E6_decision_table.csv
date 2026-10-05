@@ -2,8 +2,7 @@ Column / issue,Decision,Because
 weight_kg,do not use,92.1% missing (hand-off rule 1)
 is_serious,use as the ML target; never use is_death / is_life_threatening / is_hospitalized / is_disability as features,leakage; positives = 11.3% (imbalanced); OT 'other serious' is not counted
 reporter_type,keep as a feature and as a stratifier; 'Unknown' stays a category; HP and OT stay separate,14.9% unknown; mix differs by drug (V=0.21)
-drug x reporter cells with n < 30,hide / do not compare,2 cells hidden - tiny groups give unstable percentages
 raw % serious by drug (E2),show with 95% interval and n; never as a safety ranking,"reports, not rates; reporter mix differs"
-drug gap in % serious,report the standardised gap with its interval next to the raw one,"Semaglutide - Tirzepatide: 13.8 -> 11.5 points [11.2, 11.9] after standardising"
-pooled years (final file),check E6d before pooling 2022-2026,a time trend can masquerade as a drug effect
+drug gap in % serious,do not rank drugs by raw % serious; compare within the same reporter type before concluding,reporter mix differs strongly by drug (V=0.21); not yet adjusted in this notebook
+pooled years (final file),check % serious by year before pooling 2022-2026,a time trend can masquerade as a drug effect
 modelling target,"classification with class weights or resampling; score with PR-AUC / F1, not accuracy",positive class = 11.3%
