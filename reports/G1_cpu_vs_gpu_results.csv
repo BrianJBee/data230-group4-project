@@ -1,0 +1,9 @@
+operation,pandas_s,cudf_s,same_answer,speedup_x
+Load 3 FAERS tables,4.6068,0.4282,,10.7582
+Missing-rate scan,0.6429,0.0163,True,39.4823
+String match (GLP-1 regex),6.2575,0.2865,True,21.8432
+Group-by / value counts,0.799,0.0217,True,36.7636
+De-duplicate cases,0.4648,0.0174,True,26.6899
+Join with DEMO,6.6135,0.2956,True,22.3754
+% serious by reporter (E6),5.4668,0.3134,True,17.4458
+Age bins,0.1602,0.0131,False,12.1819
