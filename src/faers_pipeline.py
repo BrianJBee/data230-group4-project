@@ -115,8 +115,13 @@ def process_quarter(quarter, files):
     # --- DEMO (all reports, kept light for de-duplication later) ---
     demo = read_faers(files["DEMO"])
     counts["raw_reports"] = len(demo)
-    demo_light = demo[["primaryid", "caseid", "caseversion"]].copy()
-    demo_light["quarter"] = quarter
+    demo = demo.drop_duplicates("primaryid", keep="last")   # repeated rows
+    # Light copy for de-duplication: numbers take far less memory than text
+    demo_light = pd.DataFrame({
+        "primaryid": demo["primaryid"],
+        "caseid": pd.to_numeric(demo["caseid"], errors="coerce"),
+        "caseversion": pd.to_numeric(demo["caseversion"], errors="coerce"),
+    })
 
     # --- DRUG: find GLP-1 rows ---
     drug = read_faers(files["DRUG"], usecols=[
