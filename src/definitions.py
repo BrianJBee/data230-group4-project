@@ -1,6 +1,9 @@
 """
 Shared definitions for the DATA 230 Group 4 project (FAERS GLP-1).
 
+Analysis rules only (what counts as a GLP-1 drug, a serious outcome, ...).
+Run settings such as the file delimiter and encoding live in config.yml.
+
 Every notebook imports from this file so that everyone uses the SAME rules:
     from src.definitions import *
 
@@ -9,13 +12,7 @@ change it here (in a pull request) and tell the team.
 """
 
 # ---------------------------------------------------------------------------
-# 1. Reading the raw FAERS files
-# ---------------------------------------------------------------------------
-DELIMITER = "$"          # FAERS ASCII files are separated by $
-ENCODING = "latin-1"     # never fails on special characters (é, ñ, ...)
-
-# ---------------------------------------------------------------------------
-# 2. GLP-1 drugs: keyword -> standard ingredient name
+# 1. GLP-1 drugs: keyword -> standard ingredient name
 #    Matched (upper case) against prod_ai first, then drugname.
 # ---------------------------------------------------------------------------
 GLP1_KEYWORDS = {
@@ -38,7 +35,7 @@ EXCLUDE_KEYWORDS = ["XULTOPHY", "SOLIQUA", "INSULIN"]
 GLP1_DRUGS = ["semaglutide", "tirzepatide", "dulaglutide", "liraglutide"]
 
 # ---------------------------------------------------------------------------
-# 3. Outcomes: what counts as a "serious" report (the ML target)
+# 2. Outcomes: what counts as a "serious" report (the ML target)
 # ---------------------------------------------------------------------------
 SERIOUS_CODES = ["DE", "LT", "HO", "DS", "CA", "RI"]
 OUTCOME_NAMES = {
@@ -48,7 +45,7 @@ OUTCOME_NAMES = {
 }
 
 # ---------------------------------------------------------------------------
-# 4. Age and weight conversions
+# 3. Age and weight conversions
 # ---------------------------------------------------------------------------
 AGE_TO_YEARS = {"YR": 1.0, "DEC": 10.0, "MON": 1 / 12, "WK": 1 / 52.18,
                 "DY": 1 / 365.25, "HR": 1 / 8766}
@@ -61,7 +58,7 @@ WEIGHT_TO_KG = {"KG": 1.0, "LBS": 0.4536, "LB": 0.4536}
 WEIGHT_MIN, WEIGHT_MAX = 30, 300
 
 # ---------------------------------------------------------------------------
-# 5. Reporter type (occp_cod)
+# 4. Reporter type (occp_cod)
 # ---------------------------------------------------------------------------
 REPORTER_TYPES = {
     "MD": "Physician", "PH": "Pharmacist", "OT": "Other health professional",
@@ -70,14 +67,14 @@ REPORTER_TYPES = {
 HCP_CODES = ["MD", "PH", "OT", "HP"]
 
 # ---------------------------------------------------------------------------
-# 6. Indication groups (why the drug was taken)
+# 5. Indication groups (why the drug was taken)
 # ---------------------------------------------------------------------------
 UNKNOWN_INDICATIONS = ["PRODUCT USED FOR UNKNOWN INDICATION",
                        "DRUG USE FOR UNKNOWN INDICATION"]
 WEIGHT_WORDS = ["WEIGHT", "OBES", "OVERWEIGHT"]
 
 # ---------------------------------------------------------------------------
-# 7. Fixed drug colors (same in Python and Tableau)
+# 6. Fixed drug colors (same in Python and Tableau)
 # ---------------------------------------------------------------------------
 DRUG_COLORS = {
     "semaglutide": "#2563EB",   # blue

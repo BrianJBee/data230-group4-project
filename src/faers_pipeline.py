@@ -14,13 +14,20 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import yaml
 
 from src.definitions import (
-    AGE_BINS, AGE_LABELS, AGE_MAX, AGE_MIN, AGE_TO_YEARS, BRANDS, DELIMITER,
-    ENCODING, EXCLUDE_KEYWORDS, GLP1_KEYWORDS, HCP_CODES, REPORTER_TYPES,
+    AGE_BINS, AGE_LABELS, AGE_MAX, AGE_MIN, AGE_TO_YEARS, BRANDS,
+    EXCLUDE_KEYWORDS, GLP1_KEYWORDS, HCP_CODES, REPORTER_TYPES,
     SERIOUS_CODES, UNKNOWN_INDICATIONS, WEIGHT_MAX, WEIGHT_MIN, WEIGHT_TO_KG,
     WEIGHT_WORDS,
 )
+
+# Run settings (delimiter, encoding) come from config.yml, like ingest.py
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+_CONFIG = yaml.safe_load((PROJECT_ROOT / "config.yml").read_text())
+DELIMITER = _CONFIG["ingestion"]["delimiter"]
+ENCODING = _CONFIG["ingestion"]["encoding"]
 
 TABLES = ["DEMO", "DRUG", "REAC", "OUTC", "INDI"]
 FILE_PATTERN = re.compile(r"^(DEMO|DRUG|REAC|OUTC|INDI)(\d{2})Q(\d)\.TXT$",
