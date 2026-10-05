@@ -222,3 +222,4 @@ data/
 
 # Sandbox files
 notebooks/00_sandbox.ipynb
+.DS_Store
