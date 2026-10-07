@@ -1,9 +1,9 @@
 operation,pandas_s,cudf_s,same_answer,speedup_x
-Load 3 FAERS tables,5.4612,0.4166,,13.1093
-Missing-rate scan,0.5964,0.0168,True,35.5524
-String match (GLP-1 regex),4.8047,0.2646,True,18.1613
-Group-by / value counts,0.7765,0.0189,True,41.051
-De-duplicate cases,0.9206,0.0136,True,67.4763
-Join with DEMO,6.1447,0.2769,True,22.1898
-% serious by reporter (E6),6.2716,0.2916,True,21.5083
-Age bins,0.1699,0.0124,False,13.7135
+Load 3 FAERS tables,4.2597,0.4127,,10.3208
+Missing-rate scan,1.0556,0.0164,True,64.3749
+String match (GLP-1 regex),4.5793,0.275,True,16.6533
+Group-by / value counts,0.7213,0.0183,True,39.4114
+De-duplicate cases,0.4063,0.0132,True,30.8528
+Join with DEMO,5.1866,0.2888,True,17.9606
+% serious by reporter (E6),5.467,0.3035,True,18.0103
+Age bins,0.2444,0.0194,True,12.6212
