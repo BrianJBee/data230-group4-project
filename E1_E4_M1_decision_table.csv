@@ -1,6 +1,0 @@
-Column / issue,Decision,Because
-year_quarter / year,"keep year as a feature; compare drugs on % serious, not counts",reports grew 7.3x from 2022Q1 to 2026Q2; Tirzepatide leads since 2022Q4
-sex,keep as a feature; 'Unknown' stays a category,"men 15.2% vs. women 10.8% serious, higher in every age group"
-age_group,keep; 'Under 18' stays separate; adults could be one band if the model needs it,adults 12.9%–15.3% serious; under 18 39.5% (n=334)
-age_years missing,keep rows; 'Unknown' level + age_missing flag; median-impute age_years in the ML pipeline,39% missing; serious 7.9% vs. 13.4%
-is_serious (target),"binary classification; class weights or SMOTE; stratified split; recall, F1, PR-AUC",positives = 11.3%; always-'not serious' baseline = 88.7% accuracy
