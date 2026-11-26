@@ -1,0 +1,49 @@
+model,column,mean_abs_shap,feature,share_pct
+XGBoost,n_reactions,0.79637355,Number of side effects listed,13.67
+XGBoost,rg_dosing_device_product_use,0.78223866,"Side effect: dosing, device & product use",13.43
+XGBoost,rg_injection_site,0.6891895,Side effect: injection site,11.83
+XGBoost,drug=tirzepatide,0.28565106,Drug: tirzepatide,4.9
+XGBoost,rg_weight_appetite,0.23097879,Side effect: weight & appetite,3.96
+XGBoost,age_group=Unknown,0.18784525,Age: not stated,3.22
+XGBoost,rg_lack_of_effect,0.17020455,Side effect: lack of effect,2.92
+XGBoost,indication_group=Unknown,0.16561165,Taken for: not stated,2.84
+XGBoost,n_other_drugs,0.1645142,Number of other medicines listed,2.82
+XGBoost,reporter_type=Consumer,0.15187001,Reported by: Consumer,2.61
+XGBoost,year,0.13632126,Year received,2.34
+XGBoost,rg_general_tiredness_pain,0.13436796,"Side effect: general (tiredness, pain)",2.31
+XGBoost,rg_pancreas_gallbladder,0.1303378,Side effect: pancreas & gallbladder,2.24
+XGBoost,dose_reported,0.12652151,Dose given in the report,2.17
+XGBoost,drug=semaglutide,0.120694704,Drug: semaglutide,2.07
+XGBoost,reporter_type=Unknown,0.117268234,Reported by: not stated,2.01
+XGBoost,rg_blood_sugar_fluids_kidney,0.11128648,"Side effect: blood sugar, fluids & kidney",1.91
+XGBoost,rg_other,0.107531056,Side effect: other,1.85
+XGBoost,rg_heart_circulation,0.09859288,Side effect: heart & circulation,1.69
+XGBoost,rg_gastrointestinal,0.097676165,Side effect: gastrointestinal,1.68
+XGBoost,rg_skin_hair,0.09736284,Side effect: skin & hair,1.67
+XGBoost,rg_nervous_system,0.09446565,Side effect: nervous system,1.62
+XGBoost,sex=M,0.092550896,Sex: male,1.59
+XGBoost,drug=dulaglutide,0.063984714,Drug: dulaglutide,1.1
+XGBoost,sex=Unknown,0.057906188,Sex: not stated,0.99
+XGBoost,rg_eye,0.055890504,Side effect: eye,0.96
+XGBoost,age_group=18-39,0.047594532,Age: 18-39,0.82
+XGBoost,route_group=Unknown,0.047438625,Given as: not stated,0.81
+XGBoost,reporter_type=Physician,0.046265002,Reported by: Physician,0.79
+XGBoost,indication_group=Diabetes,0.043434445,Taken for: Diabetes,0.75
+XGBoost,age_group=65 and over,0.04202544,Age: 65+,0.72
+XGBoost,rg_mental_health_sleep,0.034530245,Side effect: mental health & sleep,0.59
+XGBoost,rg_muscle_bone_injury,0.03358711,"Side effect: muscle, bone & injury",0.58
+XGBoost,age_group=40-64,0.03357439,Age: 40-64,0.58
+XGBoost,rg_infections_breathing,0.031088674,Side effect: infections & breathing,0.53
+XGBoost,route_group=Injection,0.027518226,Given as: injection,0.47
+XGBoost,reporter_type=Pharmacist,0.027506942,Reported by: Pharmacist,0.47
+XGBoost,indication_group=Weight loss,0.021003205,Taken for: Weight loss,0.36
+XGBoost,indication_group=Other,0.020905359,Taken for: Other,0.36
+XGBoost,rg_allergy,0.01757066,Side effect: allergy,0.3
+XGBoost,drug=liraglutide,0.015651742,Drug: liraglutide,0.27
+XGBoost,sex=F,0.015440255,Sex: female,0.27
+XGBoost,rg_cancer_thyroid,0.014840621,Side effect: cancer & thyroid,0.25
+XGBoost,reporter_type=Lawyer,0.01199249,Reported by: Lawyer,0.21
+XGBoost,reporter_type=Health professional,0.011388734,Reported by: other health professional,0.2
+XGBoost,rg_liver,0.0075685875,Side effect: liver,0.13
+XGBoost,route_group=Oral,0.0042409943,Given as: pill,0.07
+XGBoost,age_group=Under 18,0.003311628,Age: Under 18,0.06
