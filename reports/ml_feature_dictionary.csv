@@ -1,0 +1,30 @@
+feature,type,meaning
+drug,category,"GLP-1 ingredient (semaglutide, tirzepatide, dulaglutide, liraglutide)"
+age_group,category,"Age band, or Unknown"
+sex,category,F / M / Unknown
+reporter_type,category,Who filed the report
+indication_group,category,Why the drug was taken
+route_group,category,Injection / Oral / Unknown
+dose_reported,number / 0-1,1 = the report gives a dose
+year,number / 0-1,Year the FDA received the report
+n_reactions,number / 0-1,Number of side effects listed
+n_other_drugs,number / 0-1,Number of other medicines listed
+rg_allergy,number / 0-1,1 = report mentions a side effect in 'Allergy'
+rg_blood_sugar_fluids_kidney,number / 0-1,"1 = report mentions a side effect in 'Blood sugar, fluids & kidney'"
+rg_cancer_thyroid,number / 0-1,1 = report mentions a side effect in 'Cancer & thyroid'
+rg_dosing_device_product_use,number / 0-1,"1 = report mentions a side effect in 'Dosing, device & product use'"
+rg_eye,number / 0-1,1 = report mentions a side effect in 'Eye'
+rg_gastrointestinal,number / 0-1,1 = report mentions a side effect in 'Gastrointestinal'
+rg_general_tiredness_pain,number / 0-1,"1 = report mentions a side effect in 'General (tiredness, pain)'"
+rg_heart_circulation,number / 0-1,1 = report mentions a side effect in 'Heart & circulation'
+rg_infections_breathing,number / 0-1,1 = report mentions a side effect in 'Infections & breathing'
+rg_injection_site,number / 0-1,1 = report mentions a side effect in 'Injection site'
+rg_lack_of_effect,number / 0-1,1 = report mentions a side effect in 'Lack of effect'
+rg_liver,number / 0-1,1 = report mentions a side effect in 'Liver'
+rg_mental_health_sleep,number / 0-1,1 = report mentions a side effect in 'Mental health & sleep'
+rg_muscle_bone_injury,number / 0-1,"1 = report mentions a side effect in 'Muscle, bone & injury'"
+rg_nervous_system,number / 0-1,1 = report mentions a side effect in 'Nervous system'
+rg_other,number / 0-1,1 = report mentions a side effect in 'Other'
+rg_pancreas_gallbladder,number / 0-1,1 = report mentions a side effect in 'Pancreas & gallbladder'
+rg_skin_hair,number / 0-1,1 = report mentions a side effect in 'Skin & hair'
+rg_weight_appetite,number / 0-1,1 = report mentions a side effect in 'Weight & appetite'

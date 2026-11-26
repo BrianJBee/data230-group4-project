@@ -1,0 +1,24 @@
+Column / issue,Decision,Reason
+"primaryid, caseid","Keep in file, NOT a feature","They are IDs, not information about the report. Kept for joining and duplicate checks."
+is_serious,Target (the answer),"1 = death, life-threatening, hospitalisation, disability, birth defect or required intervention."
+"is_death, is_life_threatening, is_hospitalized, is_disability",Drop (leakage),"These define is_serious, so they give away the answer."
+"'Outcome words (death, hospital)' reaction group",Drop (leakage),"Side-effect terms such as 'death' or 'hospitalisation' are outcomes, not side effects."
+drug,Keep (category),The main comparison of the project: the four GLP-1 ingredients.
+"brand, drugname, prod_ai",Drop,Repeat the drug in more detail (free text / brand names); brand also has gaps.
+route,"Keep, simplified to Injection / Oral / Unknown",Raw text has many spellings; the useful part is pill vs injection.
+dose_form,Drop,Repeats route (tablet vs solution).
+"dose_amt, dose_unit","Drop the number, keep a yes/no flag -> dose_reported","37.4% missing, and mg is not comparable across drugs (1 mg weekly injection vs 14 mg daily pill are both normal doses)."
+is_compounded,Drop,"Every report is 0 (no compounded product found), so it carries no information."
+"age_years, age_raw, age_cod",Drop,38.6% missing; age_group already covers age.
+age_group,Keep (category incl. Unknown),Standard age bands; no guessing of missing ages.
+weight_kg,Drop (no flag either),"92.1% missing. The few reports with a weight are mostly serious ones, because serious cases get follow-up questions. A weight being filled in is a result of being serious, not a cause (see Step 5)."
+sex,Keep (F / M / Unknown),Basic patient information.
+reporter_type,Keep (category incl. Unknown),"Who filed the report (doctor, pharmacist, consumer, lawyer)."
+is_hcp,Drop,Repeats reporter_type (health professional yes/no).
+reporter_country,Drop,"FDA rules mainly require drug companies to send reports from outside the US when they are serious, so 'outside US' almost means 'serious' (see Step 5). It would teach the model a reporting rule, not a medical pattern."
+indication_group,Keep (category incl. Unknown),"Why the drug was taken (diabetes, weight loss, other). About half are Unknown; kept as its own group, not guessed."
+"n_reactions, n_other_drugs",Keep (numbers),"How many side effects and other medicines are listed. Skewed (a few reports list over 50); tree models do not mind, scale them for logistic regression."
+year,Keep (number),"Reporting changes over time (new drugs, more weight-loss use)."
+quarter,Drop,"Quarter is when the FDA received the report, not a real season of illness."
+year_quarter,Drop,Repeats year + quarter.
+reaction groups (from the reactions table),Keep as 0/1 columns (rg_...),One column per side-effect group: 1 if the report mentions it. Yes/no can never be missing.
