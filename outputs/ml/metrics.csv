@@ -1,0 +1,2 @@
+model,recall,precision,f1,pr_auc,roc_auc,threshold
+XGBoost,0.829,0.35,0.492,0.541,0.899,0.5
